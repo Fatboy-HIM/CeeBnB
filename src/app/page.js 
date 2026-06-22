@@ -1,0 +1,35 @@
+import Hero from '@/components/Hero';
+import ParallaxSection from '@/components/ParallaxSection';
+import RoomCard from '@/components/RoomCard';
+import BookingWidget from '@/components/BookingWidget';
+
+const rooms = [
+  {
+    image: '/images/room1.jpg',
+    title: 'Skyline Suite',
+    description: 'Floor-to-ceiling windows with drone-captured city views, king bed, and rain shower.',
+    price: 85000,
+  },
+  {
+    image: '/images/room2.jpg',
+    title: 'Garden Studio',
+    description: 'Private patio opening to tropical greenery, perfect for remote work.',
+    price: 55000,
+  },
+];
+
+export default function Home() {
+  return (
+    <main>
+      <Hero />
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <h2 className="text-5xl font-bold text-center mb-16">Rooms & Spaces</h2>
+        {rooms.map((room, i) => <RoomCard key={i} {...room} />)}
+      </section>
+      <ParallaxSection imageUrl="/images/drone-pool.jpg">
+        <h2 className="text-4xl font-bold">Rooftop Serenity</h2>
+      </ParallaxSection>
+      <BookingWidget />
+    </main>
+  );
+}
